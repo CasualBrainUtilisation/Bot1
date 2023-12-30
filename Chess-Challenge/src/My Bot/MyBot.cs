@@ -25,9 +25,9 @@ public class MyBot : IChessBot
     {
         0, //None
         0, //Pawn
-        10, //Horsey
-        30, //NonHorseyBoy
-        30, //Rook
+        5, //Horsey
+        10, //NonHorseyBoy
+        5, //Rook
         0, //Queen
        -2, //King
     };
@@ -45,7 +45,7 @@ public class MyBot : IChessBot
 
         int maxi(int depth, int a, int b, bool root = false)
         {
-            if (depth == 0) return Evaluate(board);
+            if (depth == 0 || board.IsDraw() || board.IsInCheckmate()) return Evaluate(board);
 
             int max = -9999999;
             foreach (Move move in board.GetLegalMoves())
@@ -67,7 +67,7 @@ public class MyBot : IChessBot
 
         int mini(int depth, int a, int b, bool root = false)
         {
-            if (depth == 0) return Evaluate(board);
+            if (depth == 0 || board.IsDraw() || board.IsInCheckmate()) return Evaluate(board);
 
             int min = 9999999;
             foreach (Move move in board.GetLegalMoves())
