@@ -87,8 +87,8 @@ public class MyBot : IChessBot
             return min;
         }
 
-        if (board.IsWhiteToMove) maxi(3, -9999999, 9999999, true);
-        else mini(3, -9999999, 9999999, true);
+        if (board.IsWhiteToMove) maxi(4, -9999999, 9999999, true);
+        else mini(4, -9999999, 9999999, true);
 
         return moveToPerform;
     }
